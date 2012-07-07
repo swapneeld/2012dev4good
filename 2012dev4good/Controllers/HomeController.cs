@@ -110,7 +110,7 @@ namespace _2012dev4good.Controllers
         {
 
             //replace these with values from the Model (cd)
-            var UserName = User.Identity.Name;  //cd.UserName, cd.UserRealName
+            var MyUserName = User.Identity.Name;  //cd.UserName, cd.UserRealName
             var ModeratorName = "ModeratorName";  //cd.ModeratorName
             var ModeratorAddress = "dev4good2012@gmail.com";  //cd.ModeratorEmail
             var ContentID = System.Guid.NewGuid().ToString();//cd.CID
@@ -121,7 +121,7 @@ namespace _2012dev4good.Controllers
             //email text
             var Subject = "New MyBook Story Submitted for review";
             var Body = String.Format("<html><body><h1>Hello {0},</h1>You have recieved this email because {1} has published a story and has nominated you to check it's content.<br/>"
-                                        + "<br/>Please click on this link --> {2} to go and see the story.  Thank you!</body></html>", ModeratorName, UserName, ModeratorLink);
+                                        + "<br/>Please click on this link --> {2} to go and see the story.  Thank you!</body></html>", ModeratorName, MyUserName, ModeratorLink);
 
             //send the email
             Services.Email.SendEmail(ModeratorName, ModeratorAddress, Subject, Body);
