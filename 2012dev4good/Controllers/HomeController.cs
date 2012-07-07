@@ -18,18 +18,18 @@ namespace _2012dev4good.Controllers
         public ActionResult About()
         {
             System.Configuration.Configuration rootWebConfig =
-				System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/2012dev4good");
-			System.Configuration.ConnectionStringSettings connString = null;
-			if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
-			{
-				connString =
-					rootWebConfig.ConnectionStrings.ConnectionStrings["CMEntities"];
-				if (connString != null)
-					Console.WriteLine("CMEntities connection string = \"{0}\"",
-						connString.ConnectionString);
-				else
-					Console.WriteLine("No CMEntities connection string");
-			}
+                System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/2012dev4good");
+            System.Configuration.ConnectionStringSettings connString = null;
+            if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
+            {
+                connString =
+                    rootWebConfig.ConnectionStrings.ConnectionStrings["CMEntities"];
+                if (connString != null)
+                    Console.WriteLine("CMEntities connection string = \"{0}\"",
+                        connString.ConnectionString);
+                else
+                    Console.WriteLine("No CMEntities connection string");
+            }
 
             CreativeDetail cd = new CreativeDetail();
             cd.UserId = "100";
@@ -44,19 +44,54 @@ namespace _2012dev4good.Controllers
 
         public ActionResult DisplayFeed()
         {
-        
+
             CMEntities cm = new CMEntities();
             var myCreativeDetails = cm.CreativeDetails.AsQueryable();
             var returnoitems = new List<CreativeDetailsViewModel>();
             foreach (var item in myCreativeDetails)
             {
                 var cdviewModel = new CreativeDetailsViewModel();
-                cdviewModel.Title= item.Title;
+                cdviewModel.Title = item.Title;
                 cdviewModel.Body = item.Body;
                 returnoitems.Add(cdviewModel);
             }
             return View(returnoitems);
-            
+
+        }
+
+        [HttpGet]
+        public ActionResult CreateNew() // acept user Id here
+        {
+            return View();
+        }
+
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult CreateNew(CreativeDetailsViewModel creativeDetailsViewModel)
+        {
+            System.Configuration.Configuration rootWebConfig =
+    System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/2012dev4good");
+            System.Configuration.ConnectionStringSettings connString = null;
+            if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
+            {
+                connString =
+                    rootWebConfig.ConnectionStrings.ConnectionStrings["CMEntities"];
+                if (connString != null)
+                    Console.WriteLine("CMEntities connection string = \"{0}\"",
+                        connString.ConnectionString);
+                else
+                    Console.WriteLine("No CMEntities connection string");
+            }
+
+            CreativeDetail cd = new CreativeDetail();
+            cd.UserId = "100";
+            cd.Title = creativeDetailsViewModel.Title;
+            cd.Body = creativeDetailsViewModel.Body;
+            cd.Footer = "Footer";
+            CMEntities cm = new CMEntities(connString.ConnectionString);
+            cm.AddToCreativeDetails(cd);
+            cm.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

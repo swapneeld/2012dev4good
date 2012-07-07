@@ -14,7 +14,10 @@
   {
     %>
 
-  <%: item.Title%> <br />
+  <%: item.Title%> 
+  
+  <%: item.Body%> <br />
+  <br />
 
 <%  }
      %>
