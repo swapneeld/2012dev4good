@@ -44,10 +44,18 @@ namespace _2012dev4good.Controllers
 
         public ActionResult DisplayFeed()
         {
+        
             CMEntities cm = new CMEntities();
             var myCreativeDetails = cm.CreativeDetails.AsQueryable();
-            
-            return View(myCreativeDetails);
+            var returnoitems = new List<CreativeDetailsViewModel>();
+            foreach (var item in myCreativeDetails)
+            {
+                var cdviewModel = new CreativeDetailsViewModel();
+                cdviewModel.Title= item.Title;
+                cdviewModel.Body = item.Body;
+                returnoitems.Add(cdviewModel);
+            }
+            return View(returnoitems);
             
         }
     }
