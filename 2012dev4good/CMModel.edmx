@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CMModelStoreContainer">
+          <EntitySet Name="CreativeDetails" EntityType="CMModel.Store.CreativeDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="CMModel.Store.Users" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="CreativeDetails">
+          <Key>
+            <PropertyRef Name="CDId" />
+          </Key>
+          <Property Name="CDId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Body" Type="ntext" />
+          <Property Name="Footer" Type="nvarchar" MaxLength="500" />
+          <Property Name="Extra1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tag1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tag2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Extra4" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="500" />
+          <Property Name="Extra1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Extra2" Type="nvarchar" MaxLength="500" />
+          <Property Name="Extra3" Type="nvarchar" MaxLength="500" />
+          <Property Name="Extra4" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CreativeDetails" EntityType="CMModel.CreativeDetail" />
+          <EntitySet Name="Users" EntityType="CMModel.User" />
+        </EntityContainer>
+        <EntityType Name="CreativeDetail">
+          <Key>
+            <PropertyRef Name="CDId" />
+          </Key>
+          <Property Type="Int32" Name="CDId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Footer" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tag1" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tag2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra3" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra4" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LoginName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailID" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra1" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra3" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extra4" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMModelStoreContainer" CdmEntityContainer="CMEntities">
+          <EntitySetMapping Name="CreativeDetails">
+            <EntityTypeMapping TypeName="CMModel.CreativeDetail">
+              <MappingFragment StoreEntitySet="CreativeDetails">
+                <ScalarProperty Name="Extra4" ColumnName="Extra4" />
+                <ScalarProperty Name="Extra3" ColumnName="Extra3" />
+                <ScalarProperty Name="Tag2" ColumnName="Tag2" />
+                <ScalarProperty Name="Tag1" ColumnName="Tag1" />
+                <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+                <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+                <ScalarProperty Name="Footer" ColumnName="Footer" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CDId" ColumnName="CDId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CMModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Extra4" ColumnName="Extra4" />
+                <ScalarProperty Name="Extra3" ColumnName="Extra3" />
+                <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+                <ScalarProperty Name="Extra1" ColumnName="Extra1" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CMModel" ZoomLevel="43">
+        <EntityTypeShape EntityType="CMModel.CreativeDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="CMModel.User" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7494921874999996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
