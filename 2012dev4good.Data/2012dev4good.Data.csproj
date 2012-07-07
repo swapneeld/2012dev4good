@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>8a2882cb-caaa-4d2f-a7ee-dc6ea36eb78d</ProjectGuid>
+    <ProjectGuid>{9D51364F-3D31-4D0D-A9B0-B11E6EF7C3E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_2012dev4good.Data</RootNamespace>
-    <AssemblyName>_2012dev4good.Data</AssemblyName>
+    <AssemblyName>2012dev4good.Data</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
