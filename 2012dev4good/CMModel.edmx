@@ -24,6 +24,8 @@
           <Property Name="Tag2" Type="nvarchar" MaxLength="50" />
           <Property Name="Extra3" Type="nvarchar" MaxLength="50" />
           <Property Name="Extra4" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -62,6 +64,8 @@
           <Property Type="String" Name="Tag2" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Extra3" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Extra4" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="DateTime" Name="UpdateDate" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -86,6 +90,8 @@
           <EntitySetMapping Name="CreativeDetails">
             <EntityTypeMapping TypeName="CMModel.CreativeDetail">
               <MappingFragment StoreEntitySet="CreativeDetails">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
                 <ScalarProperty Name="Extra4" ColumnName="Extra4" />
                 <ScalarProperty Name="Extra3" ColumnName="Extra3" />
                 <ScalarProperty Name="Tag2" ColumnName="Tag2" />
@@ -136,7 +142,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CMModel" ZoomLevel="43">
-        <EntityTypeShape EntityType="CMModel.CreativeDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="CMModel.CreativeDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5186979166666665" />
         <EntityTypeShape EntityType="CMModel.User" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7494921874999996" />
       </Diagram>
     </Diagrams>

@@ -64,7 +64,8 @@
             <nav>
                 <ul id="menu">
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("History", "DisplayFeed", "Home")%></li>
+                    <li><%: Html.ActionLink("Be Creative", "CreateNew", "Home")%></li>
                 </ul>
             </nav>
         <section id="main">

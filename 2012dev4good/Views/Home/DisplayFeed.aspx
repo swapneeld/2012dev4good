@@ -13,10 +13,16 @@
     foreach (var item in Model)
   {
     %>
-
-  <%: item.Title%> 
-  
-  <%: item.Body%> <br />
+    <div style ="border-width ="5">
+  Added on <% if (item.UpdateDate.HasValue)
+              {
+                  %>   
+                  <%:  item.UpdateDate.Value.ToLocalTime()%>                       <%} %>
+                  
+                  
+  <I><%: item.Title%>    - <%= System.Web.HttpUtility.HtmlDecode(item.Body)%></I>
+  </div> 
+  <br />
   <br />
 
 <%  }

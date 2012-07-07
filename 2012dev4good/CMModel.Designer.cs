@@ -416,6 +416,54 @@ namespace _2012dev4good
         private global::System.String _Extra4;
         partial void OnExtra4Changing(global::System.String value);
         partial void OnExtra4Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> AddedDate
+        {
+            get
+            {
+                return _AddedDate;
+            }
+            set
+            {
+                OnAddedDateChanging(value);
+                ReportPropertyChanging("AddedDate");
+                _AddedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AddedDate");
+                OnAddedDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _AddedDate;
+        partial void OnAddedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnAddedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> UpdateDate
+        {
+            get
+            {
+                return _UpdateDate;
+            }
+            set
+            {
+                OnUpdateDateChanging(value);
+                ReportPropertyChanging("UpdateDate");
+                _UpdateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdateDate");
+                OnUpdateDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _UpdateDate;
+        partial void OnUpdateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnUpdateDateChanged();
 
         #endregion
     

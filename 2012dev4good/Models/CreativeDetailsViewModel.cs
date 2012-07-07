@@ -17,5 +17,7 @@ namespace _2012dev4good.Models
         public string Extra4 { get; set; }
         public string Tag1 { get; set; }
         public string Tag2 { get; set; }
+        public DateTime? AddedDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
     }
 }

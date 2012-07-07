@@ -41,7 +41,7 @@ namespace _2012dev4good.Controllers
             cm.SaveChanges();
             return View();
         }
-
+        [HttpGet]
         public ActionResult DisplayFeed()
         {
 
@@ -52,7 +52,8 @@ namespace _2012dev4good.Controllers
             {
                 var cdviewModel = new CreativeDetailsViewModel();
                 cdviewModel.Title = item.Title;
-                cdviewModel.Body = item.Body;
+                cdviewModel.Body = item.Body.Length > 140 ? item.Body.Substring(0,140) : item.Body  ;
+                cdviewModel.UpdateDate = item.UpdateDate;
                 returnoitems.Add(cdviewModel);
             }
             return View(returnoitems);
