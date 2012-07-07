@@ -382,6 +382,8 @@
     <Content Include="Scripts\tiny_mce\utils\form_utils.js" />
     <Content Include="Scripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
+    <Content Include="Scripts\turn\turn.js" />
+    <Content Include="Scripts\turn\turn.min.js" />
     <Content Include="Views\Home\CreateNew.aspx" />
     <Content Include="Views\Home\DisplayFeed.aspx" />
     <Content Include="Web.config" />

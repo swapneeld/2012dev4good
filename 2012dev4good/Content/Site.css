@@ -322,3 +322,16 @@ div#title {
 .tri-state {
     width: 6em;
 }
+body{
+	background:#ccc;
+}
+#book{
+	width:80%;
+	height:600px;
+	margin:0 auto;
+}
+#book .turn-page{
+	width:50%;
+	height:600px;
+	background-color:#fff;
+}
