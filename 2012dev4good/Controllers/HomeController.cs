@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using _2012dev4good.Models;
 namespace _2012dev4good.Controllers
 {
     public class HomeController : Controller
@@ -42,9 +42,13 @@ namespace _2012dev4good.Controllers
             return View();
         }
 
-        //public Action DisplayFeed()
-        //{
-
-        //}
+        public ActionResult DisplayFeed()
+        {
+            CMEntities cm = new CMEntities();
+            var myCreativeDetails = cm.CreativeDetails.AsQueryable();
+            
+            return View(myCreativeDetails);
+            
+        }
     }
 }
