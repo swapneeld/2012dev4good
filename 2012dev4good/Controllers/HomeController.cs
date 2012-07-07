@@ -31,6 +31,32 @@ namespace _2012dev4good.Controllers
                     Console.WriteLine("No CMEntities connection string");
             }
 
+
+
+            //BEGIN EMAIL
+
+            //replace these with values from the Model (CD)
+            var UserName = User.Identity.Name;  //Model.UserName, Model.UserRealName
+            var ModeratorName = "ModeratorName";  //Model.ModeratorName
+            var ModeratorAddress = "goodall@gmail.com";  //Model.ModeratorEmail
+            var ContentID = System.Guid.NewGuid().ToString();//Model.CID
+
+            //the link that the moderator will click on to view the content and approve it
+            var ModeratorLink = String.Format(System.Configuration.ConfigurationManager.AppSettings["Link"], ContentID);
+
+            //email text
+            var Subject = "New MyBook Story Submitted for review";
+            var Body = String.Format("<html><body><h1>Hello {0},</h1>You have recieved this email because {1} has published a story and has nominated you to check it's content.<br/>"
+                                        + "<br/>Please click on this link --> {2} to go and see the story.  Thank you!</body></html>", ModeratorName, UserName, ModeratorLink);
+         
+            //send the email
+            Services.Email.SendEmail(ModeratorName, ModeratorAddress, Subject, Body);
+            
+            //END EMAIL
+
+
+
+
             CreativeDetail cd = new CreativeDetail();
             cd.UserId = "100";
             cd.Title = "title";
@@ -40,6 +66,8 @@ namespace _2012dev4good.Controllers
             cm.AddToCreativeDetails(cd);
             cm.SaveChanges();
             return View();
+
+            
         }
         [HttpGet]
         public ActionResult DisplayFeed()
