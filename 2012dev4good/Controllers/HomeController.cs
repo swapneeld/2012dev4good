@@ -110,10 +110,10 @@ namespace _2012dev4good.Controllers
         {
 
             //replace these with values from the Model (cd)
-            var UserName = User.Identity.Name;  //Model.UserName, Model.UserRealName
-            var ModeratorName = "ModeratorName";  //Model.ModeratorName
-            var ModeratorAddress = "dev4good2012@gmail.com";  //Model.ModeratorEmail
-            var ContentID = System.Guid.NewGuid().ToString();//Model.CID
+            var UserName = User.Identity.Name;  //cd.UserName, cd.UserRealName
+            var ModeratorName = "ModeratorName";  //cd.ModeratorName
+            var ModeratorAddress = "dev4good2012@gmail.com";  //cd.ModeratorEmail
+            var ContentID = System.Guid.NewGuid().ToString();//cd.CID
 
             //the link that the moderator will click on to view the content and approve it
             var ModeratorLink = String.Format(System.Configuration.ConfigurationManager.AppSettings["Link"], ContentID);
