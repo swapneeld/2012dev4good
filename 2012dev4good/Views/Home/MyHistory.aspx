@@ -24,6 +24,8 @@
     </script>
     <h2>
         History</h2>
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js">
+    </script>
     <div id="book">
         <%
             foreach (var item in Model)
@@ -38,7 +40,7 @@
                 <%:  item.UpdateDate.Value.ToLocalTime()%>
                 <%} %>
                 <%: item.Title%>
-                -</center>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text=<%: item.Title%> text="Tweet">Tweet</a> -</center>
             <%= System.Web.HttpUtility.HtmlDecode(item.Body)%>
         </div>
         <%  }

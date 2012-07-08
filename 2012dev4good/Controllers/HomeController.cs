@@ -31,11 +31,8 @@ namespace _2012dev4good.Controllers
                     Console.WriteLine("No CMEntities connection string");
             }
 
-
-
-
             CreativeDetail cd = new CreativeDetail();
-            cd.UserId = "100";
+            cd.UserId = 1;
             cd.Title = "title";
             cd.Body = "Body";
             cd.Footer = "Footer";
@@ -43,8 +40,6 @@ namespace _2012dev4good.Controllers
             cm.AddToCreativeDetails(cd);
             cm.SaveChanges();
             return View();
-
-
         }
 
        
@@ -91,7 +86,7 @@ namespace _2012dev4good.Controllers
             }
 
             CreativeDetail cd = new CreativeDetail();
-            cd.UserId = "100";
+            cd.UserId = 1;
             cd.Title = creativeDetailsViewModel.Title;
             cd.Body = creativeDetailsViewModel.Body;
             cd.Footer = "Footer";
@@ -106,6 +101,13 @@ namespace _2012dev4good.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult Edit() // acept user Id here
+        {
+            return View();
+        }
+
 
         private void SendModeratorEmail(CreativeDetail cd)
         {

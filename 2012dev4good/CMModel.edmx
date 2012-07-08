@@ -8,13 +8,17 @@
         <EntityContainer Name="CMModelStoreContainer">
           <EntitySet Name="CreativeDetails" EntityType="CMModel.Store.CreativeDetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="CMModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CreativeDetails_User" Association="CMModel.Store.FK_CreativeDetails_User">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CreativeDetails" EntitySet="CreativeDetails" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CreativeDetails">
           <Key>
             <PropertyRef Name="CDId" />
           </Key>
           <Property Name="CDId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="500" />
           <Property Name="Body" Type="ntext" />
           <Property Name="Footer" Type="nvarchar" MaxLength="500" />
@@ -41,6 +45,18 @@
           <Property Name="Extra3" Type="nvarchar" MaxLength="500" />
           <Property Name="Extra4" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <Association Name="FK_CreativeDetails_User">
+          <End Role="Users" Type="CMModel.Store.Users" Multiplicity="1" />
+          <End Role="CreativeDetails" Type="CMModel.Store.CreativeDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CreativeDetails">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -48,13 +64,17 @@
         <EntityContainer Name="CMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CreativeDetails" EntityType="CMModel.CreativeDetail" />
           <EntitySet Name="Users" EntityType="CMModel.User" />
+          <AssociationSet Name="FK_CreativeDetails_User" Association="CMModel.FK_CreativeDetails_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="CreativeDetail" EntitySet="CreativeDetails" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CreativeDetail">
           <Key>
             <PropertyRef Name="CDId" />
           </Key>
           <Property Type="Int32" Name="CDId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
           <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Footer" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -66,6 +86,7 @@
           <Property Type="String" Name="Extra4" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="AddedDate" />
           <Property Type="DateTime" Name="UpdateDate" />
+          <NavigationProperty Name="User" Relationship="CMModel.FK_CreativeDetails_User" FromRole="CreativeDetail" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -80,7 +101,20 @@
           <Property Type="String" Name="Extra2" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Extra3" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Extra4" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CreativeDetails" Relationship="CMModel.FK_CreativeDetails_User" FromRole="User" ToRole="CreativeDetail" />
         </EntityType>
+        <Association Name="FK_CreativeDetails_User">
+          <End Type="CMModel.User" Role="User" Multiplicity="1" />
+          <End Type="CMModel.CreativeDetail" Role="CreativeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="CreativeDetail">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -141,9 +175,13 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CMModel" ZoomLevel="43">
-        <EntityTypeShape EntityType="CMModel.CreativeDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5186979166666665" />
-        <EntityTypeShape EntityType="CMModel.User" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7494921874999996" />
+      <Diagram Name="CMModel" ZoomLevel="38">
+        <EntityTypeShape EntityType="CMModel.CreativeDetail" Width="1.5" PointX="3" PointY="1" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="CMModel.User" Width="1.5" PointX="0.75" PointY="1.375" Height="2.9417936197916661" />
+        <AssociationConnector Association="CMModel.FK_CreativeDetails_User" >
+          <ConnectorPoint PointX="2.25" PointY="2.8458968098958328" />
+          <ConnectorPoint PointX="3" PointY="2.8458968098958328" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

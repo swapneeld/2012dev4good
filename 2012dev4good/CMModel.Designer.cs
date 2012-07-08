@@ -16,6 +16,11 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("CMModel", "FK_CreativeDetails_User", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(_2012dev4good.User), "CreativeDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(_2012dev4good.CreativeDetail), true)]
+
+#endregion
 
 namespace _2012dev4good
 {
@@ -139,7 +144,7 @@ namespace _2012dev4good
         /// </summary>
         /// <param name="cDId">Initial value of the CDId property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
-        public static CreativeDetail CreateCreativeDetail(global::System.Int32 cDId, global::System.String userId)
+        public static CreativeDetail CreateCreativeDetail(global::System.Int32 cDId, global::System.Int32 userId)
         {
             CreativeDetail creativeDetail = new CreativeDetail();
             creativeDetail.CDId = cDId;
@@ -182,7 +187,7 @@ namespace _2012dev4good
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String UserId
+        public global::System.Int32 UserId
         {
             get
             {
@@ -192,13 +197,13 @@ namespace _2012dev4good
             {
                 OnUserIdChanging(value);
                 ReportPropertyChanging("UserId");
-                _UserId = StructuralObject.SetValidValue(value, false);
+                _UserId = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("UserId");
                 OnUserIdChanged();
             }
         }
-        private global::System.String _UserId;
-        partial void OnUserIdChanging(global::System.String value);
+        private global::System.Int32 _UserId;
+        partial void OnUserIdChanging(global::System.Int32 value);
         partial void OnUserIdChanged();
     
         /// <summary>
@@ -467,6 +472,47 @@ namespace _2012dev4good
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CMModel", "FK_CreativeDetails_User", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("CMModel.FK_CreativeDetails_User", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("CMModel.FK_CreativeDetails_User", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("CMModel.FK_CreativeDetails_User", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("CMModel.FK_CreativeDetails_User", "User", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -716,6 +762,31 @@ namespace _2012dev4good
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CMModel", "FK_CreativeDetails_User", "CreativeDetail")]
+        public EntityCollection<CreativeDetail> CreativeDetails
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CreativeDetail>("CMModel.FK_CreativeDetails_User", "CreativeDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CreativeDetail>("CMModel.FK_CreativeDetails_User", "CreativeDetail", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion
