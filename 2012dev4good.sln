@@ -5,7 +5,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2012dev4good", "2012dev4goo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2012dev4good.Data", "2012dev4good.Data\2012dev4good.Data.csproj", "{9D51364F-3D31-4D0D-A9B0-B11E6EF7C3E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2012dev4good.Tests", "2012dev4good.Tests\2012dev4good.Tests.csproj", "{E59B0CEB-021E-4625-8843-18F8BD342899}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DBE5196-BAFD-4ABF-89E4-A8BABCD5FFDA}"
+	ProjectSection(SolutionItems) = preProject
+		2012dev4good.vsmdi = 2012dev4good.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = 2012dev4good.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -19,6 +31,10 @@ Global
 		{9D51364F-3D31-4D0D-A9B0-B11E6EF7C3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D51364F-3D31-4D0D-A9B0-B11E6EF7C3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D51364F-3D31-4D0D-A9B0-B11E6EF7C3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59B0CEB-021E-4625-8843-18F8BD342899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59B0CEB-021E-4625-8843-18F8BD342899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59B0CEB-021E-4625-8843-18F8BD342899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59B0CEB-021E-4625-8843-18F8BD342899}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -127,7 +127,7 @@ namespace _2012dev4good.Controllers
                                         + "<br/>Please click on this link --> {2} to go and see the story.  Thank you!</body></html>", ModeratorName, MyUserName, ModeratorLink);
 
             //send the email
-            Services.Email.SendEmail(ModeratorName, ModeratorAddress, Subject, Body);
+            bool bSuccess = Services.Email.SendEmail(ModeratorName, ModeratorAddress, Subject, Body);
         }
 
 
