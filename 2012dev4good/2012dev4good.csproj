@@ -37,6 +37,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.2.0\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -69,10 +72,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CMModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchData.cs" />
+    <Compile Include="PDFClass\CreatePdf.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\CreativeDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -378,6 +386,10 @@
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <Content Include="Views\Home\CreateNew.aspx" />
     <Content Include="Views\Home\DisplayFeed.aspx" />
+    <Content Include="Views\Search\Index.aspx" />
+    <Content Include="Views\User\Edit.aspx" />
+    <Content Include="Views\User\MyPage.aspx" />
+    <Content Include="Views\User\Registration.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -412,7 +424,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -430,7 +441,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60368</DevelopmentServerPort>
+          <DevelopmentServerPort>24775</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
