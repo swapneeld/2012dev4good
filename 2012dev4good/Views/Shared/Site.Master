@@ -71,13 +71,7 @@
                 </ul>
             </nav>
         --%>
-        <nav>
-                <ul id="menu">
-                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("History", "MyHistory", "Home")%></li>
-                    <li><%: Html.ActionLink("Be Creative", "CreateNew", "Home")%></li>
-                </ul>
-            </nav>
+
     </div>
     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 </body>

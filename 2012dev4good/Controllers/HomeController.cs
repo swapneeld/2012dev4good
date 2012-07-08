@@ -121,6 +121,7 @@ namespace _2012dev4good.Controllers
             foreach (var item in myCreativeDetails)
             {
                 var cdviewModel = new CreativeDetailsViewModel();
+                cdviewModel.CDId = item.CDId;
                 cdviewModel.Title = item.Title;
                 cdviewModel.Body = item.Body;
                 cdviewModel.UpdateDate = item.UpdateDate;

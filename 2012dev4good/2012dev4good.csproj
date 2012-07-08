@@ -87,6 +87,13 @@
     <Content Include="App_Data\CreativeMind_log.ldf">
       <DependentUpon>CreativeMind.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\book_worm.jpg" />
+    <Content Include="Content\diary.png" />
+    <Content Include="Content\football.png" />
+    <Content Include="Content\heart.png" />
+    <Content Include="Content\my_book.png" />
+    <Content Include="Content\pirate.png" />
+    <Content Include="Content\skull.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -114,6 +121,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\wand.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -421,6 +429,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\icons and logo.zip" />
     <None Include="Content\myBalsamiqProject.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

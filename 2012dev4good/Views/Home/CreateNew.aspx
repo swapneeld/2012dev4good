@@ -6,12 +6,16 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<div id="logo">
+            <a href="Index"><img src="../../Content/my_book.png" /></a>
+        </div>
+        <div id="main">
     <% using (Html.BeginForm())
        {
      %>
      <%: Html.LabelFor(model => model.Title)%>
             <%: Html.TextBoxFor(model => model.Title)%>
-     
+     <input type="submit" id="contentSubmit" value="Sumbit" />
 		<!-- Some integration calls -->
 <%--		<a href="javascript:;" onclick="tinyMCE.get('elm1').show();return false;">[Show]</a>
 		<a href="javascript:;" onclick="tinyMCE.get('elm1').hide();return false;">[Hide]</a>
@@ -22,16 +26,13 @@
 		<a href="javascript:;" onclick="alert(tinyMCE.get('elm1').selection.getNode().nodeName);return false;">[Get selected element]</a>
 		<a href="javascript:;" onclick="tinyMCE.execCommand('mceInsertContent',false,'<b>Hello world!!</b>');return false;">[Insert HTML]</a>
 		<a href="javascript:;" onclick="tinyMCE.execCommand('mceReplaceContent',false,'<b>{$selection}</b>');return false;">[Replace selection]</a>--%>
-		<h3>Full featured example</h3>
 
 <%--		<p>
 			This page shows all available buttons and plugins that are included in the TinyMCE core package.
 			There are more examples on how to use TinyMCE in the <a href="http://tinymce.moxiecode.com/examples/">Wiki</a>.
 		</p>--%>
 
-		<div>
-        <%: Html.LabelFor(model => model.Body)%>
-        </div>
+	
         <div>
         <%: Html.TextAreaFor(model => model.Body,new {rows="15", cols="80", style="width: 80%"})%>
 <%--			<textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 80%">
@@ -43,11 +44,11 @@
 				&lt;/p&gt;
 			</textarea>
 --%>
-            <input type="submit" value="Sumbit" />
+            
 
 		</div>
     <%       
        }
      %>
-
+     </div>
 </asp:Content>

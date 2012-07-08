@@ -12,67 +12,41 @@
 </asp:Content>
 --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-        <div id="main">
-            <div id="indexContainer">
-                <div id="col1">
-                    <h1>
-                        Latest Publications</h1>
-                    <div id="ticker">
-                        <ul id="tickerItems">
-                            <%
-                                foreach (var item in Model)
-                                {
-                            %>
-                            <% if (item.Title != null)
-                               {
-                               
-                            %>
-                            <li class="tickerItem">
-                                <%= Html.ActionLink(item.Title, "DisplayArticle", "Home", new { id = item.CDId },null)%>
-                                <%--                        <li class="tickerItem"><a href="~/Home/DisplayArticle/articleid?="><%: item.CDId%>
-                                <%: item.Title%></a> </li>
-                                --%>
-                            </li>
-                            <% }
-                            %>
-                            <%  }
-                            %>
-                            <%--                        <li class="tickerItem">Matthew Arnold wrote a new story called <a href="#">The longest
-                                day</a> </li>
-                            <li class="tickerItem">Matthew Arnold wrote a new story called <a href="#">Endless Issues</a>
-                            </li>
-                            <li class="tickerItem">Matthew Arnold wrote a new story called <a href="#">Unproductive
-                                iterations</a> </li>
-                            <li class="tickerItem">Matthew Arnold wrote a new story called <a href="#">Unagile response
-                                to change</a> </li>
-                            --%>
-                            <li class="tickerItem">Matthew Arnold wrote a new story called <a href="#">TInsufficient
-                                Planning</a> </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="col2">
-                    <h1>
-                        Your Book</h1>
-                    <div id="siteText">
-                        <p>
-                            This is YOUR space to be creative and share your work with your friends, family
-                            and even the world! How you use it is entirely up to you, so don't hang around...
-                            get creative and start writing!
-                        </p>
-                    </div>
-                </div>
-                <div id="col3">
-                    <h1>
-                        Top Items Today</h1>
-                    <div id="topStuff">
-                        <div id="topItems">
-                            <ul id="topItemList">
-                                <li class="topItem"><a href="#">The longest day</a> By Matthew Arnold </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div id="main">
+        <div id="logo">
+            <img src="../../Content/my_book.png" />
         </div>
+        <div id="genreSelection">
+            <h2>
+                Genre Selection</h2>
+            <ul id="genreIcons">
+                <li class="icon">
+                <img class="iconImage" src="../../Content/diary.png" />
+                    <%: Html.ActionLink("History", "MyHistory", "Home")%></li>
+                <li class="icon">
+                <img class="iconImage" src="../../Content/diary.png" />
+                    <%: Html.ActionLink("Be Creative", "CreateNew", "Home")%></li>
+                <li class="icon">
+                    <img class="iconImage" src="../../Content/Wand.png" />
+                    <a href="#">Fairy Tale</a> </li>
+                <li class="icon">
+                    <img class="iconImage" src="../../Content/Skull.png" />
+                    <a href="#">Horror</a> </li>
+                <li class="icon">
+                    <img class="iconImage" src="../../Content/heart.png" />
+                    <a href="#">Romantic</a> </li>
+                <li class="icon">
+                    <img class="iconImage" src="../../Content/football.png" />
+                    <a href="#">Sport</a> </li>
+                <li class="icon">
+                    <img class="iconImage" src="../../Content/diary.png" />
+                    <a href="#">Diary</a> </li>
+            </ul>
+        </div>
+        <%--        <div id="editor">
+        </div>
+        <div id="editorControls">
+        </div>   
+        --%>
+    </div>
 </asp:Content>

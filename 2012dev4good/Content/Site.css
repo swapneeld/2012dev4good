@@ -233,8 +233,8 @@ select
 
 input[type="submit"]
 {
-    font-size: 1.2em;
-    padding: 5px;
+   /* font-size: 1.2em;
+    padding: 5px;*/
 }
 
 /* TABLE
@@ -426,6 +426,8 @@ p
     border-radius: 5px;
     -moz-border-radius: 5px;
     border: 1px solid gray;
+    height: 768px;
+    margin-bottom:10px;
 }
 .page
 {
@@ -508,3 +510,13 @@ ul#menu li a
     background-color: #202020;
     color: #FFFFFF;
 }
+
+#logo img {margin-left:auto; margin-right:auto; width: 400px; display:block;}
+#genreSelection h2 {width:170px; margin-left:auto; margin-right:auto;}
+#genreSelection { margin-left:auto; margin-right:auto; width:630px;}
+genreIcons {list-style-type:none;}
+.icon {float:left;list-style-type:none; padding:10px;}
+.icon a {clear:left; float: left; width:100%; text-align:center;}
+.iconImage{width:60px; height:60px; float:left;}
+#book {border: 1px dotted gray;}
+#contentSubmit {height:30px;}
