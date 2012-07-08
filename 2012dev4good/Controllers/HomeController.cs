@@ -10,9 +10,19 @@ namespace _2012dev4good.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome...";
-
-            return View();
+            CMEntities cm = new CMEntities();
+            var myCreativeDetails = cm.CreativeDetails.AsQueryable().OrderByDescending(c => c.UpdateDate).Take(10);
+            var returnoitems = new List<CreativeDetailsViewModel>();
+            foreach (var item in myCreativeDetails)
+            {
+                var cdviewModel = new CreativeDetailsViewModel();
+                cdviewModel.CDId = item.CDId;
+                cdviewModel.Title = item.Title;
+                cdviewModel.Body = item.Body;
+                cdviewModel.UpdateDate = item.UpdateDate;
+                returnoitems.Add(cdviewModel);
+            }
+            return View(returnoitems);
         }
 
         public ActionResult About()
@@ -103,15 +113,24 @@ namespace _2012dev4good.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit() // acept user Id here
+        public ActionResult DisplayArticle(int id) // acept user Id here
         {
-            return View();
+            CMEntities cm = new CMEntities();
+            var myCreativeDetails = cm.CreativeDetails.Where(c => c.CDId == id);
+            var returnoitems = new List<CreativeDetailsViewModel>();
+            foreach (var item in myCreativeDetails)
+            {
+                var cdviewModel = new CreativeDetailsViewModel();
+                cdviewModel.Title = item.Title;
+                cdviewModel.Body = item.Body;
+                cdviewModel.UpdateDate = item.UpdateDate;
+                returnoitems.Add(cdviewModel);
+            }
+            return View("MyHistory", returnoitems);
         }
-
 
         private void SendModeratorEmail(CreativeDetail cd)
         {
-
             //replace these with values from the Model (cd)
             var MyUserName = User.Identity.Name;  //cd.UserName, cd.UserRealName
             var ModeratorName = "ModeratorName";  //cd.ModeratorName
@@ -129,7 +148,6 @@ namespace _2012dev4good.Controllers
             //send the email
             bool bSuccess = Services.Email.SendEmail(ModeratorName, ModeratorAddress, Subject, Body);
         }
-
 
     }
 }

@@ -33,14 +33,13 @@
         %>
         <div>
             <center>
-                Added on
                 <% if (item.UpdateDate.HasValue)
                    {
                 %>
-                <%:  item.UpdateDate.Value.ToLocalTime()%>
-                <%} %>
+                <%:  item.UpdateDate.Value.ToLocalTime().DayOfWeek %> <%:  item.UpdateDate.Value.ToLocalTime().ToString("MMM dd yyyy")%>
+                <%} %><br />
                 <%: item.Title%>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text=<%: item.Title%> text="Tweet">Tweet</a> -</center>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-text="<%: item.Title%>" text="Tweet">Tweet</a></center>
             <%= System.Web.HttpUtility.HtmlDecode(item.Body)%>
         </div>
         <%  }

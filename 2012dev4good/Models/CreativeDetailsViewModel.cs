@@ -7,6 +7,7 @@ namespace _2012dev4good.Models
 {
     public class CreativeDetailsViewModel
     {
+        public int CDId { get; set; }
         public int UserId { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
