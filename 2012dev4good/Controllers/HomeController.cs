@@ -49,7 +49,7 @@ namespace _2012dev4good.Controllers
 
        
         [HttpGet]
-        public ActionResult DisplayFeed()
+        public ActionResult MyHistory()
         {
             CMEntities cm = new CMEntities();
             var myCreativeDetails = cm.CreativeDetails.AsQueryable().OrderByDescending(c=>c.UpdateDate);

@@ -6,6 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewBag.Message %></h2>
     <p>
-        
+        display History here    
     </p>
 </asp:Content>

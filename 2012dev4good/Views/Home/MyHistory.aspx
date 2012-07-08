@@ -9,7 +9,7 @@
     <script type="text/javascript">
         $(window).ready(function () {
             $('#book').turn({
-                display: 'single',
+                display: 'double',
                 acceleration: true,
                 gradients: !$.isTouch,
                 elevation: 50,
@@ -22,7 +22,6 @@
         });
 
     </script>
-
     <h2>
         History</h2>
     <div id="book">
@@ -31,15 +30,15 @@
             {
         %>
         <div>
-            Added on
-            <% if (item.UpdateDate.HasValue)
-               {
-            %>
-
-            <%:  item.UpdateDate.Value.ToLocalTime()%>
-            <%} %>
-            <%: item.Title%>
-            -
+            <center>
+                Added on
+                <% if (item.UpdateDate.HasValue)
+                   {
+                %>
+                <%:  item.UpdateDate.Value.ToLocalTime()%>
+                <%} %>
+                <%: item.Title%>
+                -</center>
             <%= System.Web.HttpUtility.HtmlDecode(item.Body)%>
         </div>
         <%  }

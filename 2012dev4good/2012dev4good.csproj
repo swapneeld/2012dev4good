@@ -385,7 +385,7 @@
     <Content Include="Scripts\turn\turn.js" />
     <Content Include="Scripts\turn\turn.min.js" />
     <Content Include="Views\Home\CreateNew.aspx" />
-    <Content Include="Views\Home\DisplayFeed.aspx" />
+    <Content Include="Views\Home\MyHistory.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
