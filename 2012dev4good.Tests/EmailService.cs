@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Net.Configuration;
+using System.Configuration;
 
 
 namespace _2012dev4good.Tests
@@ -71,19 +72,14 @@ namespace _2012dev4good.Tests
             var ModeratorName = "SendEmail_WhenCalled_SendsEmail"; 
             var ModeratorAddress = "dev4good2012@gmail.com";  
             var ContentID = System.Guid.NewGuid().ToString();
-
-            //the link that the moderator will click on to view the content and approve it
             var ModeratorLink = "www.bbc.co.uk";
 
-            //email text
             var Subject = "Test Subject";
             var Body = String.Format("<html><body><h1>Hello World</h1></body></html>", ModeratorName, MyUserName, ModeratorLink);
 
-            //Act
-            //send the email
+            SmtpSection SMTPSettings;
 
-            //SmtpSection SMTPSettings = new SmtpSection;
-            
+            //Act
             bool actual = Services.Email.SendEmail(ModeratorName, ModeratorAddress, Subject, Body);
 
             //Assert
