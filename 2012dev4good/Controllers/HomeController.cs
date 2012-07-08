@@ -88,10 +88,11 @@ namespace _2012dev4good.Controllers
             cd.Title = creativeDetailsViewModel.Title;
             cd.Body = creativeDetailsViewModel.Body;
             cd.Footer = "Footer";
-            CMEntities cm = new CMEntities(connString.ConnectionString);
+            CMEntities cm = new CMEntities();
             cm.AddToCreativeDetails(cd);
             cm.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+  
     }
 }
